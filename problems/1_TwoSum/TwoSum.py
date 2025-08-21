@@ -36,3 +36,20 @@ print("--- 2Pass Hashmap Solution ---")
 print("Expected answer: [0, 1]")
 print("Solution answer: ", solution2.twoSum(nums, target))
 print("------------------------------")
+
+# Third Solution 
+# One Pass Hashmap 
+class Solution3(object):
+    def twoSum(self, nums, target):
+        hashmap = {}
+        for i in range(len(nums)):
+            if target - nums[i] in hashmap:
+                return [hashmap[target - nums[i]], i]
+            hashmap[nums[i]] = i
+        return []
+
+solution3 = Solution3()
+print("--- 1 Pass Hashmap Solution ---")
+print("Expected answer: [0, 1]")
+print("Solution answer: ", solution3.twoSum(nums, target))
+print("------------------------------")

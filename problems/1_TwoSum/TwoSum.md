@@ -59,6 +59,19 @@ class Solution2(object):
 - `hashmap`: stores the values of the array as keys with their indices as values for a fast lookup 
 - `complement`: used in second pass to check against in hashmap 
 
+## Code Walkthrough - One Pass Hashmap 
+
+```python
+class Solution3(object):
+    def twoSum(self, nums, target):
+        hashmap = {} # init hashmap
+        for i in range(len(nums)): # loop through length of array 
+            if target - nums[i] in hashmap: # check if complement value is in the hashmap already 
+                return [hashmap[target - nums[i]], i] # if it is, return indices
+            hashmap[nums[i]] = i # otherwise add nums[i] and continue to next 
+        return [] # return empty if not found 
+```
+
 ## Edge Cases Considered
 
 - Given the description, the only edge case to consider is no two sum in the array equaling the target which means you should return an empty array 
